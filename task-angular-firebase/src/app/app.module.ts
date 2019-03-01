@@ -8,11 +8,13 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 import { TodoComponent } from './components/todo/todo.component';
 import { TodoService } from './services/todo.service';
+import { DialogAddComponent } from './components/dialog-add/dialog-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoComponent
+    TodoComponent,
+    DialogAddComponent
   ],
   imports: [
     BrowserModule,
@@ -21,6 +23,7 @@ import { TodoService } from './services/todo.service';
     AngularFireDatabaseModule
   ],
   providers: [TodoService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [DialogAddComponent]
 })
 export class AppModule { }
