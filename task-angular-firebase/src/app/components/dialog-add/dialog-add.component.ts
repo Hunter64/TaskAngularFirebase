@@ -10,6 +10,7 @@ export class DialogAddComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('Hola')
   }
 
 }
