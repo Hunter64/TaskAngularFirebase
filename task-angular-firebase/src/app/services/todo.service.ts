@@ -7,13 +7,14 @@ import { TodoModel } from '../models/todo';
 })
 export class TodoService {
   todoList: AngularFireList<any>;
+  selectedTask_temporally: TodoModel = new TodoModel();
 
   constructor(
     private firebasedb: AngularFireDatabase
   ) { }
 
   getTodoList(){
-    this.todoList = this.firebasedb.list('titles');
+    this.todoList = this.firebasedb.list('tasks');
     return this.todoList;
   }
 
@@ -30,7 +31,7 @@ export class TodoService {
   }
 
   updateTodo(data: TodoModel){
-    this.todoList.update(data.key, {
+    this.todoList.update(data.$key, {
       title: data.title,
       description: data.description,
       isCheked: data.isCheked,

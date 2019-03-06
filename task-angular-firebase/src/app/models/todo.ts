@@ -1,5 +1,5 @@
-export interface TodoModel{
-    key: string;
+export class TodoModel{
+    $key?: string;
     title: string;
     description: string;
     isCheked: boolean;
