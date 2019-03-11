@@ -18,3 +18,9 @@
 .icons-action{
     text-align: right;
 }
+.add-button{
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    padding-left: -10%;
+}

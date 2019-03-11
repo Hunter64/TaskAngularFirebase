@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { TodoModel } from 'src/app/models/todo';
 
 @Component({
   selector: 'app-dialog-add',
@@ -7,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogAddComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public dialogRef: MatDialogRef<DialogAddComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: TodoModel
+  ) { }
 
   ngOnInit() {
     console.log('Hola')
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 }

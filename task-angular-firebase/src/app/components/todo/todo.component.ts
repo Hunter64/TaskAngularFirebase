@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../../services/todo.service';
 import { TodoModel } from 'src/app/models/todo';
+import { MatDialog } from '@angular/material';
+import { DialogAddComponent } from '../dialog-add/dialog-add.component';
 
 @Component({
   selector: 'app-todo',
@@ -16,7 +18,8 @@ export class TodoComponent implements OnInit {
   disabled = false;
 
   constructor(
-    private _todoService: TodoService
+    private _todoService: TodoService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -38,6 +41,19 @@ export class TodoComponent implements OnInit {
       console.log(this.todoList)
     })
   }
+
+  addNew(){
+    const dialogRef = this.dialog.open(DialogAddComponent, {
+      width: '250px',
+      //data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      //this.animal = result;
+    });
+  }
+  
 
   addTodo(todo: TodoModel){
     this.todo = {
