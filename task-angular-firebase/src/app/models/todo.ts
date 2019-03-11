@@ -2,7 +2,7 @@ export class TodoModel{
     $key?: string;
     title: string;
     description: string;
-    isCheked: boolean;
+    status: boolean;
     creator: string;
     dateCreate: Date;
     modifier?: string;

@@ -1,4 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+* { 
+    font-family: Roboto, Arial, sans-serif;
+}
+
 body{
     background: #F7F8F8;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #ACBB78, #F7F8F8);  /* Chrome 10-25, Safari 5.1-6 */

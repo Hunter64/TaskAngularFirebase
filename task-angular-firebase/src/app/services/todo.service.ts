@@ -22,7 +22,7 @@ export class TodoService {
     this.todoList.push({
       title: data.title,
       description: data.description,
-      isCheked: false,
+      status: false,
       creator: data.creator,
       dateCreate: data.dateCreate,
       modifier: null,
@@ -34,7 +34,7 @@ export class TodoService {
     this.todoList.update(data.$key, {
       title: data.title,
       description: data.description,
-      isCheked: data.isCheked,
+      status: data.status,
       creator: data.creator,
       dateCreate: data.dateCreate,
       modifier: data.modifier,
