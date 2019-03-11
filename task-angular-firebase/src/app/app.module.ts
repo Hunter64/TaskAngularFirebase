@@ -9,6 +9,9 @@ import { environment } from '../environments/environment';
 import { TodoComponent } from './components/todo/todo.component';
 import { TodoService } from './services/todo.service';
 import { DialogAddComponent } from './components/dialog-add/dialog-add.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AngularMaterialModule } from './angular-material/AngularMaterialModule'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -20,7 +23,11 @@ import { DialogAddComponent } from './components/dialog-add/dialog-add.component
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularMaterialModule,
+    ReactiveFormsModule,
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [TodoService],
   bootstrap: [AppComponent],
