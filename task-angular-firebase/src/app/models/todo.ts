@@ -7,4 +7,6 @@ export class TodoModel{
     dateCreate: Date;
     modifier?: string;
     dateModify?: Date;
+    completed: boolean;
+    dateComplete: Date;
 }

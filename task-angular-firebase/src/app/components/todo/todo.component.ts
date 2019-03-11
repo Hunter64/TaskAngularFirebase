@@ -44,7 +44,7 @@ export class TodoComponent implements OnInit {
 
   addNew(){
     const dialogRef = this.dialog.open(DialogAddComponent, {
-      width: '250px',
+      width: '350px',
       //data: {name: this.name, animal: this.animal}
     });
 
@@ -64,6 +64,8 @@ export class TodoComponent implements OnInit {
       dateCreate: new Date(),
       modifier: null,
       dateModify: null,
+      completed: false,
+      dateComplete: new Date(),
     }
     this._todoService.addTodo(this.todo);
   }
@@ -78,7 +80,9 @@ export class TodoComponent implements OnInit {
       creator: 'Hunter',
       dateCreate: new Date(),
       modifier: 'Hunter',
-      dateModify: new Date()
+      dateModify: new Date(),
+      completed: false,
+      dateComplete: new Date(),
     }
     this._todoService.updateTodo(this.todo)
     
