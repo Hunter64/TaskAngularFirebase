@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList, QueryFn, AngularFireAction } from 'angularfire2/database';
 import { TodoModel } from '../models/todo';
 
 @Injectable({
@@ -10,8 +10,8 @@ export class TodoService {
   selectedTask_temporally: TodoModel = new TodoModel();
 
   constructor(
-    private firebasedb: AngularFireDatabase
-  ) { }
+    private firebasedb: AngularFireDatabase,
+  ) {}
 
   getTodoList(){
     this.todoList = this.firebasedb.list('tasks');

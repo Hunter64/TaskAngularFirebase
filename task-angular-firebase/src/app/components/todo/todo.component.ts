@@ -4,6 +4,7 @@ import { TodoModel } from 'src/app/models/todo';
 import { MatDialog } from '@angular/material';
 import { DialogAddComponent } from '../dialog-add/dialog-add.component';
 import { AccessoriesService } from 'src/app/services/accessories.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-todo',
@@ -17,15 +18,25 @@ export class TodoComponent implements OnInit {
   color = 'accent';
   checked = false;
   disabled = false;
-
+  
   constructor(
     private _todoService: TodoService,
     private _accesoriesService: AccessoriesService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private activatedRoute: ActivatedRoute,
   ) { }
 
   ngOnInit() {
-    this.getTodo();
+    console.log('Todo comp')
+    var dateSelected = String(this.activatedRoute.snapshot.paramMap.get('dateSelected'));
+    if(dateSelected != null && dateSelected != undefined){
+      console.log(dateSelected)
+      var start = '2019-05-01T06:00:00.000Z'
+      var end = '2019-05-30T06:00:00.000Z'
+      this.getTodo();
+    }
+    
+    //this.getTodo();
     //this.addTodo(this.todo);
     //this.editTodo(this.todo)
   }

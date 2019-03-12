@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarView, CalendarEvent } from 'angular-calendar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-principal',
@@ -11,13 +12,19 @@ export class PrincipalComponent implements OnInit {
   view: CalendarView = CalendarView.Month;
   events: CalendarEvent[] = [];
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
-    console.log(date)
+    
+    if(date != undefined && date != null){
+      this.router.navigate(["/todo/" + date.toString()]);
+      console.log(date)
+    }
   }
 
 }
