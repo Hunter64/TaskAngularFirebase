@@ -3,6 +3,7 @@ import { TodoService } from '../../services/todo.service';
 import { TodoModel } from 'src/app/models/todo';
 import { MatDialog } from '@angular/material';
 import { DialogAddComponent } from '../dialog-add/dialog-add.component';
+import { AccessoriesService } from 'src/app/services/accessories.service';
 
 @Component({
   selector: 'app-todo',
@@ -19,6 +20,7 @@ export class TodoComponent implements OnInit {
 
   constructor(
     private _todoService: TodoService,
+    private _accesoriesService: AccessoriesService,
     public dialog: MatDialog
   ) { }
 
@@ -29,6 +31,7 @@ export class TodoComponent implements OnInit {
   }
 
   getTodo(){
+    this._accesoriesService.showLoading();
     this._todoService.getTodoList()
     .snapshotChanges()
     .subscribe(item => {
@@ -38,6 +41,7 @@ export class TodoComponent implements OnInit {
         x['$key'] = e.key;
         this.todoList.push(x as TodoModel)
       })
+      this._accesoriesService.hideLoading();
       console.log(this.todoList)
     })
   }

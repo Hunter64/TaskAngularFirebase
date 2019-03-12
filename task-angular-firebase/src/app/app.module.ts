@@ -12,12 +12,17 @@ import { DialogAddComponent } from './components/dialog-add/dialog-add.component
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AngularMaterialModule } from './angular-material/AngularMaterialModule'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { PrincipalComponent } from './components/principal/principal.component';
+import { ProgressBarComponent } from './components/accessories/progress-bar/progress-bar.component';
+import { AccessoriesService } from './services/accessories.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
-    DialogAddComponent
+    PrincipalComponent,
+    DialogAddComponent,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     FormsModule,
     BrowserAnimationsModule
   ],
-  providers: [TodoService],
+  providers: [TodoService, AccessoriesService],
   bootstrap: [AppComponent],
   entryComponents: [DialogAddComponent]
 })
