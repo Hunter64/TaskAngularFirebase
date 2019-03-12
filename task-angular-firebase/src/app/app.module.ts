@@ -15,6 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { PrincipalComponent } from './components/principal/principal.component';
 import { ProgressBarComponent } from './components/accessories/progress-bar/progress-bar.component';
 import { AccessoriesService } from './services/accessories.service';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,11 @@ import { AccessoriesService } from './services/accessories.service';
     AngularMaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    })
   ],
   providers: [TodoService, AccessoriesService],
   bootstrap: [AppComponent],
