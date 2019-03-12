@@ -15,9 +15,7 @@
     </mat-card-header>
 
     <mat-slide-toggle
-        [color]="color"
-        [checked]="checked"
-        [disabled]="disabled">
+        (change)="change_slide(task)">
         Status: {{task.status}}
       </mat-slide-toggle>
 
@@ -27,7 +25,7 @@
       </p>
     </mat-card-content>
     <mat-card-actions class="icons-action">
-      <button mat-icon-button> <mat-icon>mode_edit</mat-icon> </button>
+      <button mat-icon-button (click)="edit(task)"> <mat-icon>mode_edit</mat-icon> </button>
       <button mat-icon-button> <mat-icon>delete</mat-icon> </button>
     </mat-card-actions>
   </mat-card>

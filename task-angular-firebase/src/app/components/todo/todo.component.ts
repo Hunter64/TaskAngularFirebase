@@ -57,6 +57,16 @@ export class TodoComponent implements OnInit {
       //this.animal = result;
     });
   }
+
+  change_slide(x: TodoModel){
+    console.log(x)
+  }
+
+  edit(x: TodoModel){
+    console.log(x)
+  }
+  
+
   
 
   addTodo(todo: TodoModel){
